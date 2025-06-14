@@ -44,14 +44,14 @@ jobs:
 
       - name: Move output
         run: |
-          mv dist/main-${{ matrix.target }}${{ matrix.ext }} mcskill-launcher-${{ matrix.target }}${{ matrix.ext }}
+          mv dist/main-${{ matrix.target }}${{ matrix.ext }} mcskill-launcher-test-${{ matrix.target }}${{ matrix.ext }}
         shell: bash
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: bin-${{ matrix.target }}
-          path: mcskill-launcher-${{ matrix.target }}${{ matrix.ext }}
+          path: mcskill-launcher-test-${{ matrix.target }}${{ matrix.ext }}
 
   build-linux-arm64:
     name: Build Linux ARM64
@@ -75,14 +75,14 @@ jobs:
               pip install -r requirements.txt &&
               pip install pyinstaller &&
               pyinstaller main.py --name main-linux-arm64 --onefile --noupx &&
-              mv dist/main-linux-arm64 mcskill-launcher-linux-arm64
+              mv dist/main-linux-arm64 mcskill-launcher-linux-test-arm64
             "
 
       - name: Upload ARM64 artifact
         uses: actions/upload-artifact@v4
         with:
           name: bin-linux-arm64
-          path: mcskill-launcher-linux-arm64
+          path: mcskill-launcher-test-linux-arm64
 
   release:
     name: Create GitHub Release

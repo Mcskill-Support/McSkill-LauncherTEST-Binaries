@@ -12,9 +12,9 @@ from tkinter import messagebox
 
 init()
 
-BASE_URL = "https://mcskill.net/McSkill.jar"
-INSTALL_DIR = os.path.join(os.path.expanduser("~"), "McSkill")
-JAR_PATH = os.path.join(INSTALL_DIR, "McSkill.jar")
+BASE_URL = "https://mcskill.net/McSkillTest.jar"
+INSTALL_DIR = os.path.join(os.path.expanduser("~"), "McSkillTest")
+JAR_PATH = os.path.join(INSTALL_DIR, "McSkillTest.jar")
 JDK_DIR = os.path.join(INSTALL_DIR, "jdk")
 
 def print_status(message, symbol="🔄", color=Fore.CYAN):
@@ -74,7 +74,7 @@ def main():
     try:
         os.makedirs(INSTALL_DIR, exist_ok=True)
 
-        print_status("Скачивание McSkill.jar...")
+        print_status("Скачивание McSkillTest.jar...")
         download_file(BASE_URL, JAR_PATH)
 
         if not os.path.exists(JDK_DIR):
@@ -95,9 +95,9 @@ def main():
         if not os.path.exists(java_bin):
             raise RuntimeError("Не найден исполняемый файл Java")
 
-        print_status("Запуск McSkill.jar...")
+        print_status("Запуск McSkillTest.jar...")
         subprocess.run([java_bin, "-jar", JAR_PATH])
-        show_message("Успех", "McSkill.jar успешно запущен!")
+        show_message("Успех", "McSkillTest.jar успешно запущен!")
 
     except Exception as e:
         print_error(str(e))
