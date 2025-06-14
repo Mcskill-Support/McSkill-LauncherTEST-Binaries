@@ -75,7 +75,7 @@ jobs:
               pip install -r requirements.txt &&
               pip install pyinstaller &&
               pyinstaller main.py --name main-linux-arm64 --onefile --noupx &&
-              mv dist/main-linux-arm64 mcskill-launcher-linux-test-arm64
+              mv dist/main-linux-arm64 mcskill-launcher-test-linux-arm64
             "
 
       - name: Upload ARM64 artifact
@@ -110,4 +110,4 @@ jobs:
           name: Release v${{ github.run_number }}
           artifacts: |
             final/*
-            
+
